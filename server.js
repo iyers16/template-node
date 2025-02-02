@@ -1,8 +1,9 @@
-// server.js (for JavaScript setup)
+
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
+const path = require("path");
 
 const app = express();
 
@@ -13,7 +14,7 @@ app.use(express.json()); // Parses JSON requests
 
 // Routes
 app.get("/", (req, res) => {
-  res.json({ message: "Hello, World!" });
+    res.sendFile(path.join(__dirname, "index.html"));
 });
 
 // Start Server
